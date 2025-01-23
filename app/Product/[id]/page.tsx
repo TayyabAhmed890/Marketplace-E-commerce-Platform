@@ -2,22 +2,18 @@ import AddToCartButton from "@/app/components/AddToCartButton";
 import { client } from "@/sanity/lib/client";
 
 interface Product {
-  id: number;
+  id:number;
   name: string;
   description: string;
   price: string;
   image_url?: string;
 }
 
-interface ProductPageProps {
-  params: { id: string };
-}
-
-export default async function ProductPage({ params }: ProductPageProps)  {
-  const { id } = params;
+export default async function ProductPage({ params }: { params: { id: string } }) {
+  const { id } = await params;
 
   // Fetch product details from Sanity
-  const product: Product | null = await client.fetch(
+  const product: Product  = await client.fetch(
     `*[_type == "product" && id == $id][0]{
       id,
       name,
@@ -181,9 +177,9 @@ export default async function ProductPage({ params }: ProductPageProps)  {
               <AddToCartButton product={{ ...product, id: Number(product.id), image_url: product.image_url || '' }}/>
           </div>
 
-          <hr className="my-6 md:my-8 border-gray-200 dark:border-gray-800" />
+          <hr className="my-6 md:my-8 border-gray-200 " />
 
-          <p className="mb-6 text-gray-500 dark:text-gray-400">
+          <p className="mb-6 text-gray-500 ">
           {product.description}
           </p>
         </div>

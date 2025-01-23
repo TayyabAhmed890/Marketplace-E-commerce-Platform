@@ -14,10 +14,10 @@ interface ProductPageProps {
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
-  const { id } = params;
+  const { id } = await params;
 
   // Fetch product details from Sanity
-  const product: Product | null = await client.fetch(
+  const product: Product = await client.fetch(
     `*[_type == "product" && id == $id][0]{
       id,
       name,
@@ -106,7 +106,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
               <hr className="my-6 md:my-8 border-gray-200 " />
 
-              <p className="mb-6 text-gray-500 dark:text-gray-400">
+              <p className="mb-6 text-gray-500 ">
                 {product.description}
               </p>
             </div>

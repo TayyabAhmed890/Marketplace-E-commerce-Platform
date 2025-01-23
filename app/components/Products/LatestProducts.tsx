@@ -18,8 +18,8 @@ const getData = async ():Promise<Product[]> => {
   const response = await client.fetch(`
     [
       *[_type == "product" && category == "Chair"][17],
-      *[_type == "product" && category == "Chair"][11],
-      *[_type == "product" && category == "Chair"][7],
+      *[_type == "product" && category == "Chair"][4],
+      *[_type == "product" && category == "Chair"][10],
       *[_type == "product" && category == "Chair"][5],
       *[_type == "product" && category == "Chair"][15],
       *[_type == "product" && category == "Chair"][9],

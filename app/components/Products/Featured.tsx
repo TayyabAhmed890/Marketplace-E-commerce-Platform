@@ -27,10 +27,10 @@ interface Product {
 const getData = async ():Promise<Product[]> => {
   const response = await client.fetch(`
     [
-      *[_type == "product" && category == "Chair"][7],
-      *[_type == "product" && category == "Chair"][1],
       *[_type == "product" && category == "Chair"][8],
-      *[_type == "product" && category == "Chair"][9]
+      *[_type == "product" && category == "Chair"][9],
+      *[_type == "product" && category == "Chair"][3],
+      *[_type == "product" && category == "Chair"][0]
     ]
   {
     id,
