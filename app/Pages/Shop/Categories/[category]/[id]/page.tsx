@@ -10,7 +10,7 @@ interface Product {
 }
 
 export default async function ProductPage({ params }: { params: { id: string } }) {
-  const { id } = await params;
+  const { id } = params;
 
   // Fetch product details from Sanity
   const product: Product | null = await client.fetch(
