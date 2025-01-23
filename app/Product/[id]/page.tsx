@@ -2,7 +2,7 @@ import AddToCartButton from "@/app/components/AddToCartButton";
 import { client } from "@/sanity/lib/client";
 
 interface Product {
-  id:number;
+  id:string;
   name: string;
   description: string;
   price: string;
