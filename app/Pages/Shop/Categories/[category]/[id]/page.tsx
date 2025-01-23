@@ -2,7 +2,7 @@ import AddToCartButton from "@/app/components/AddToCartButton";
 import { client } from "@/sanity/lib/client";
 
 interface Product {
-  id: number; // Change to number to match AddToCartButtonProps
+  id: string; // Ensure id is a string
   name: string;
   description: string;
   price: string;
@@ -14,7 +14,7 @@ interface ProductPageProps {
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
-  const { id } = await params;
+  const { id } = params; // Use id as a string
 
   // Fetch product details from Sanity
   const product: Product = await client.fetch(
@@ -25,7 +25,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
       price,
       "image_url": image.asset->url
     }`,
-    { id: parseInt(id, 10) } // Convert id to number
+    { id } // Pass id directly without conversion
   );
 
   if (!product) {

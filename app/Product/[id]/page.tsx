@@ -174,7 +174,7 @@ export default async function ProductPage({ params }: { params: { id: string } }
               </svg>
               Add to favorites
             </a>
-              <AddToCartButton product={{ ...product, id: Number(product.id), image_url: product.image_url || '' }}/>
+              <AddToCartButton product={{ ...product, id: String(product.id), image_url: product.image_url || '' }}/>
           </div>
 
           <hr className="my-6 md:my-8 border-gray-200 " />

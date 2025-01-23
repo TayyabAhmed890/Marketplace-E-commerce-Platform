@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 interface AddToCartButtonProps {
   product: {
-    id: number;
+    id: string;
     name: string;
     price: string;
     image_url: string; // Ensure image_url is passed
@@ -23,7 +23,8 @@ const AddToCartButton: React.FC<AddToCartButtonProps> = ({ product }) => {
       type: "ADD_TO_CART",
       product: {
         ...product,
-        imageUrl:product.image_url,
+        id: Number(product.id),
+        imageUrl: product.image_url,
         quantity: 1,
       },
     });
