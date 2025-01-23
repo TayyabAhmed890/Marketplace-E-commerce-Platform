@@ -52,7 +52,7 @@ const page =async () => {
         <div className='flex items-center gap-[29px] flex-wrap justify-center '>
           {chairs.map((product:Product,index:number)=>(
             
-            <Link key={index} href={`/Pages/Shop/Categories/Sofas/${product.id}`}>
+            <Link key={index} href={`/Product/${product.id}`}>
           
           <div  className='hover:bg-[#2F1AC4] group h-[361px] w-[270px] flex justify-between items-center flex-col relative shadow-lg'>
             <div className='h-[236px] w-[270px] flex items-center justify-center bg-gray-50'>
