@@ -2,14 +2,18 @@ import AddToCartButton from "@/app/components/AddToCartButton";
 import { client } from "@/sanity/lib/client";
 
 interface Product {
-  id: string;
+  id: number;
   name: string;
   description: string;
   price: string;
   image_url?: string;
 }
 
-export default async function ProductPage({ params }: { params: { id: string } }) {
+interface ProductPageProps {
+  params: { id: string };
+}
+
+export default async function ProductPage({ params }: ProductPageProps)  {
   const { id } = params;
 
   // Fetch product details from Sanity
